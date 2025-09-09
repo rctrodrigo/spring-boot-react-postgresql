@@ -22,4 +22,11 @@ public class LoanCalculatorServiceImpl implements LoanCalculatorService {
     public double obtainMonthlyInterestRate(double annualInterestRate) {
         return annualInterestRate / 1200;
     }
+
+    @Override
+    public double calculateMonthlyPayment(double annualInterestRate, int numberOfYears, double loanAmount) {
+        double monthlyInterestRate = obtainMonthlyInterestRate(annualInterestRate);
+        return (int)(loanAmount * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate,
+                numberOfYears * 12)) * 100) / 100.0;
+    }
 }

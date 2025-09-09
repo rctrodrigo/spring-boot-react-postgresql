@@ -11,4 +11,5 @@ import org.springframework.stereotype.Service;
 public interface LoanCalculatorService {
 
     double obtainMonthlyInterestRate(double annualInterestRate);
+    double calculateMonthlyPayment(double annualInterestRate, int numberOfYears, double loanAmount);
 }

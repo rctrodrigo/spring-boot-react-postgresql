@@ -1,5 +1,6 @@
 package com.ravenrodrigo.loan_calculator_api.service;
 
+import com.ravenrodrigo.loan_calculator_api.entity.LoanEntity;
 import com.ravenrodrigo.loan_calculator_api.service.implementation.LoanCalculatorServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,5 +32,25 @@ public class LoanCalculatorServiceTest {
 
         // Assert
         assertThat(monthlyInterestRateExpected).isEqualTo(monthlyInterestRateActual);
+    }
+
+    @Test
+    void sould_calculate_monthly_payment() {
+
+        // Arrange
+        LoanEntity loanEntity = new LoanEntity();
+        loanEntity.setAnnualInterestRate(5.75);
+        loanEntity.setNumberOfYears(15);
+        loanEntity.setLoanAmount(250000);
+
+        // Act
+        double monthlyPaymentExpected = loanCalculatorMockServiceImpl.calculateMonthlyPayment(
+                loanEntity.getAnnualInterestRate(),
+                loanEntity.getNumberOfYears(),
+                loanEntity.getLoanAmount()
+        );
+
+        // Assert
+        assertThat(monthlyPaymentExpected).isEqualTo(2076.02);
     }
 }
