@@ -35,7 +35,7 @@ public class LoanCalculatorServiceTest {
     }
 
     @Test
-    void sould_calculate_monthly_payment() {
+    void should_calculate_monthly_payment() {
 
         // Arrange
         LoanEntity loanEntity = new LoanEntity();
@@ -52,5 +52,28 @@ public class LoanCalculatorServiceTest {
 
         // Assert
         assertThat(monthlyPaymentExpected).isEqualTo(2076.02);
+    }
+
+    @Test
+    void should_calculate_total_payment() {
+
+        // Arrange
+        LoanEntity loanEntity = new LoanEntity();
+        loanEntity.setAnnualInterestRate(5.75);
+        loanEntity.setNumberOfYears(15);
+        loanEntity.setLoanAmount(250000);
+
+        // Act
+        double totalPaymentActual = loanCalculatorMockServiceImpl.calculateTotalPayment(
+                loanEntity.getAnnualInterestRate(),
+                loanEntity.getNumberOfYears(),
+                loanEntity.getLoanAmount()
+        );
+
+        double totalPaymentExpected = loanCalculatorMockServiceImpl.calculateTotalPayment(
+                5.75, 15, 250000);
+
+        // Assert
+        assertThat(totalPaymentActual).isEqualTo(totalPaymentExpected);
     }
 }

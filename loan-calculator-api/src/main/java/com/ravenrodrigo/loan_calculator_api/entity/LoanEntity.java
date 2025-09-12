@@ -27,11 +27,11 @@ public class LoanEntity {
     private int numberOfYears;
 
     @Column(name="loan_amount")
-    private long loanAmount;
+    private double loanAmount;
 
     @Column(name="monthly_payment")
-    private long monthlyPayment;
+    private double monthlyPayment;
 
     @Column(name="total_payment")
-    private long totalPayment;
+    private double totalPayment;
 }

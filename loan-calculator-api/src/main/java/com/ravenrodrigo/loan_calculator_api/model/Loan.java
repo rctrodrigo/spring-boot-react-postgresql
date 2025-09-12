@@ -17,8 +17,8 @@ public class Loan {
     private int loanId;
     private double annualInterestRate;
     private double monthlyInterestRate;
-    private int numberofYears;
-    private long loanAmount;
-    private long monthlyPayment;
-    private long totalPayment;
+    private int numberOfYears;
+    private double loanAmount;
+    private double monthlyPayment;
+    private double totalPayment;
 }

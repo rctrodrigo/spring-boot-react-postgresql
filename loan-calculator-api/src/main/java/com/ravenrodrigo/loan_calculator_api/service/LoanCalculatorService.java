@@ -12,4 +12,5 @@ public interface LoanCalculatorService {
 
     double obtainMonthlyInterestRate(double annualInterestRate);
     double calculateMonthlyPayment(double annualInterestRate, int numberOfYears, double loanAmount);
+    double calculateTotalPayment(double annualInterestRate, int numberOfYears, double loanAmount);
 }

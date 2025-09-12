@@ -29,4 +29,10 @@ public class LoanCalculatorServiceImpl implements LoanCalculatorService {
         return (int)(loanAmount * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate,
                 numberOfYears * 12)) * 100) / 100.0;
     }
+
+    @Override
+    public double calculateTotalPayment(double annualInterestRate, int numberOfYears, double loanAmount) {
+        double monthlyPayment = this.calculateMonthlyPayment(annualInterestRate, numberOfYears, loanAmount);
+        return (int) (monthlyPayment * numberOfYears * 12 * 100) / 100.0;
+    }
 }
