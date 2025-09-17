@@ -36,4 +36,24 @@ public class LoanCalculatorServiceTest {
         // Assert
         assertThat(monthlyInterestRateExpected).isEqualTo(0.004791666666666666);
     }
+
+    @Test
+    @DisplayName("It should calculate monthly payment")
+    void shouldCalculateMonthlyPayment() {
+       // Arrange
+       LoanEntity loanEntity = new LoanEntity();
+       loanEntity.setAnnualInterestRate(5.75);
+       loanEntity.setNumberOfYears(15);
+       loanEntity.setLoanAmount(250000);
+
+       // Act
+        double monthlyPaymentActual = loanCalculatorMockServiceImpl.calculateMonthlyPayment(
+                loanEntity.getAnnualInterestRate(),
+                loanEntity.getNumberOfYears(),
+                loanEntity.getLoanAmount()
+        );
+
+        // Assert
+        assertThat(monthlyPaymentActual).isEqualTo(2076.02);
+    }
 }

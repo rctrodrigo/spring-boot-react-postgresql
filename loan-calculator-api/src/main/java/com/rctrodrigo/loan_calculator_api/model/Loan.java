@@ -17,4 +17,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Loan {
     private double annualInterestRate;
+    private int numberOfYears;
+    private double loanAmount;
 }
