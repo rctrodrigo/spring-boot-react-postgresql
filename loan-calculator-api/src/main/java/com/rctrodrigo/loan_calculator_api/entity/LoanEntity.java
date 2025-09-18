@@ -28,4 +28,7 @@ public class LoanEntity {
 
     @Column(name="loan_amount")
     private double loanAmount;
+
+    @Column(name="monthly_payment")
+    private double monthlyPayment;
 }
