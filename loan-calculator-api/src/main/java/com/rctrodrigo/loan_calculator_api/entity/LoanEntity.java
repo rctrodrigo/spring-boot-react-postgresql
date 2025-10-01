@@ -17,4 +17,10 @@ public class LoanEntity {
 
     @Column(name="annual_interest_rate")
     private double annualInterestRate;
+
+    @Column(name="number_of_years")
+    private int numberOfYears;
+
+    @Column(name="loan_amount")
+    private double loanAmount;
 }

@@ -14,4 +14,17 @@ public class LoanCalculatorService implements LoanCalculatorServiceImpl {
     public double calculateMonthlyInterestRate(double annualInterestRate) {
         return annualInterestRate / 1200;
     }
+
+    /**
+     * Calculates the monthly payment with the obtained monthly interest rate.
+     * @param annualInterestRate desired annual interest rate.
+     * @param numberOfYears number of years the customer to pay.
+     * @param loanAmount desired loan amount of the customer.
+     * @return monthlyPayment total monthly payment of the customer.
+     */
+    @Override
+    public double calculateMonthlyPayment(double annualInterestRate, int numberOfYears, double loanAmount) {
+        double monthlyInterestRate = calculateMonthlyInterestRate(annualInterestRate);
+        return loanAmount * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12));
+    }
 }
