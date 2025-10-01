@@ -10,6 +10,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoanCalculatorService implements LoanCalculatorServiceImpl {
 
+    /**
+     * Calculate the monthly interest rate that is required to calculate
+     * the monthly payment.
+     *
+     * @param annualInterestRate to be divided by 1200.
+     * @return monthlyInterestRate to be used for calculating monthly
+     *         payment.
+     */
     @Override
     public double calculateMonthlyInterestRate(double annualInterestRate) {
         return annualInterestRate / 1200;
